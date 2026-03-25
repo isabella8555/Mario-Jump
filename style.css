@@ -1,19 +1,22 @@
+/* Reset básico */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Área do jogo */
 .game-board{
     width: 100%;
     height: 500px;
-    border-bottom: 15px solid rgb(35, 160, 35); /* Na linha 10 eu coloquei o chao*/
-    margin: 0 auto; /*Na linha 11 eu coloquei margin 0*/
-    position: relative; /* Eu coloquie a position */
-    overflow: hidden; /* eu determino aonde é o limite para não transbordar a borda limite*/
-    background: linear-gradient(#87CEEB, #e0f6ff); /* Serve para mudar o fundo*/
+    border-bottom: 15px solid rgb(35, 160, 35);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#87CEEB, #e0f6ff);
 }
 
+/* Cano */
 .pipe {
     position: absolute;
     bottom: 0;
@@ -21,44 +24,42 @@
     animation: pipe-animation 1.5s infinite linear;
 }
 
+/* Mario */
 .mario{
     width: 150px;
     position: absolute;
     bottom: 0;
 }
 
+/* Animação de pulo */
 .jump{
-    animation:jump 500ms ease-out;
+    animation: jump 500ms ease-out;
 }
 
+/* Nuvens */
 .clouds {
     position: absolute;
     width: 550px;
+    left: -550px; /* começa fora da tela */
     animation: clouds-animation 10s infinite linear;
-
 }
 
+/* Animação do cano */
 @keyframes pipe-animation {
     from {
         right: -80px;
     }
-    
     to {
         right: 100%;
     }
 }
 
+/* Animação do pulo */
 @keyframes jump{
     0%{
         bottom: 0;
     }
-    40%{
-        bottom: 180px;
-    }
-    50%{
-        bottom: 180px;
-    }
-    60%{
+    40%, 50%, 60%{
         bottom: 180px;
     }
     100%{
@@ -66,17 +67,12 @@
     }
 }
 
-
-
-
-
+/* Animação das nuvens */
 @keyframes clouds-animation {
-from {
-right: 0;
-}
-
-to {
-    right: 100%;
-}
-
+    from {
+        left: -550px;
+    }
+    to {
+        left: 100%;
+    }
 }
